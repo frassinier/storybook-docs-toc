@@ -27,7 +27,7 @@ import { addParameters } from '@storybook/react';
 + addParameters(withTableOfContents());
 ```
 
-or 
+or if you need more flexibility
 
 ```diff
 import { addParameters } from '@storybook/react';
