@@ -1,7 +1,9 @@
 # storybook-docs-toc
 
-Table of contents addon for Storybook Docs.
+Table of contents addon for [Storybook Docs](https://www.npmjs.com/package/@storybook/addon-docs).
+
 Get auto generated list of links next to your content.
+
 It uses [tocbot](https://github.com/tscanlin/tocbot) under the hood.
 
 ## Install
