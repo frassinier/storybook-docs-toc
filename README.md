@@ -19,16 +19,11 @@ import { addParameters } from '@storybook/react';
 + import React from 'react';
 + import { BackToTop, TableOfContents } from 'storybook-docs-toc';
 
-addParameters({
-    docs: {
+- addParameters({
+-    docs: {
 -        container: DocsContainer,
-+        container: props => (
-+			<React.Fragment>
-+				<TableOfContents />
-+				<DocsContainer {...props} />
-+				<BackToTop />
-+			</React.Fragment>
-+		),          
-    },
-});
+-    },
+-});
+
++ addParameters(withTableOfContents());
 ```
