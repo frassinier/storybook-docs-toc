@@ -2,6 +2,7 @@
 
 Table of contents addon for Storybook Docs.
 Get auto generated list of links next to your content.
+It uses [tocbot](https://github.com/tscanlin/tocbot) under the hood.
 
 ## Install
 
