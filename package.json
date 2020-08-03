@@ -1,0 +1,48 @@
+{
+  "name": "storybook-docs-toc",
+  "version": "1.0.0",
+  "description": "Table of contents addon for Storybook Docs",
+  "main": "lib/index.js",
+  "scripts": {
+    "watch": "babel --watch src ---out-dir lib --extensions '.ts,.tsx'",
+    "build": "babel src --out-dir lib --extensions '.ts,.tsx'",
+    "tsc": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frassinier/storybook-docs-toc.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frassinier/storybook-docs-toc/issues"
+  },
+  "homepage": "https://github.com/frassinier/storybook-docs-toc#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.0",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@storybook/addon-docs": "^5.3.19",
+    "@types/react": "^16.9.44",
+    "@types/react-dom": "^16.9.8",
+    "@types/styled-components": "^5.1.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.1",
+    "typescript": "^3.9.7"
+  },
+  "peerDependencies": {
+    "@storybook/addon-docs": "^5.3.19",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.1"
+  },
+  "dependencies": {
+    "tocbot": "^4.12.0"
+  }
+}
