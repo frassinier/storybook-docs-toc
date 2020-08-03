@@ -13,22 +13,22 @@ npm i -D storybook-docs-toc
 
 Add this to your preview.js
 
-```js
+```diff
 import { addParameters } from '@storybook/react';
-import { withTableOfContents } from 'storybook-docs-toc';
-
-addParameters(withTableOfContents());
-```
-
-or 
-
-```js
-import { addParameters } from '@storybook/react';
-import { DocsContainerHOC } from 'storybook-docs-toc';
+- import { DocsContainer } from '@storybook/addon-docs/blocks';
++ import React from 'react';
++ import { BackToTop, TableOfContents } from 'storybook-docs-toc';
 
 addParameters({
     docs: {
-        container: DocsContainerHOC,
+-        container: DocsContainer,
++        container: props => (
++			<React.Fragment>
++				<TableOfContents />
++				<DocsContainer {...props} />
++				<BackToTop />
++			</React.Fragment>
++		),          
     },
 });
 ```

@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-/*
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -22,7 +21,7 @@ const Button = styled.button`
 		padding: 0.5rem;
 	}
 `;
-*/
+
 const BackToTop: FunctionComponent = () => {
 	const [visible, isVisible] = React.useState(false);
 
@@ -40,10 +39,10 @@ const BackToTop: FunctionComponent = () => {
 	}
 
 	return (
-		<button onClick={() => window.scroll({ top: 0, left: 0, behavior: 'smooth' })}>
+		<Button onClick={() => window.scroll({ top: 0, left: 0, behavior: 'smooth' })}>
 			<span aria-hidden={true}>↑</span>
 			Back to top
-		</button>
+		</Button>
 	);
 }
 

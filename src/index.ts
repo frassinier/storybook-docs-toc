@@ -1,4 +1,6 @@
+import BackToTop from './components/BackToTop';
 import DocsContainerHOC from './components/DocsContainerHOC';
+import TableOfContents from './components/TableOfContents';
 
 const withTableOfContents = () => ({
     docs: {
@@ -7,6 +9,8 @@ const withTableOfContents = () => ({
 });
 
 export {
-    withTableOfContents,
+    BackToTop,
     DocsContainerHOC,
+    TableOfContents,
+    withTableOfContents,
 };

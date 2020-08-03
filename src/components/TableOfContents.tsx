@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
+import styled from 'styled-components';
 import tocbot from 'tocbot';
-/*import styled from 'styled-components';
 
 const Nav = styled.nav`
 	position: fixed;
@@ -50,7 +50,7 @@ const Nav = styled.nav`
 const NavHeader = styled.header`
 	font-weight: bold;
 `;
-*/
+
 const configuration = {
 	tocSelector: '.js-toc',
 	contentSelector: '.sbdocs-content',
@@ -85,10 +85,10 @@ const TableOfContents: FunctionComponent = () => {
 	}, []);
 
 	return (
-		<nav>
-			{headings.length > 0 && <strong>Table of contents</strong>}
+		<Nav>
+			{headings.length > 0 && <NavHeader>Table of contents</NavHeader>}
 			<div className="js-toc"></div>
-		</nav>
+		</Nav>
 	);
 }
 
