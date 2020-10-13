@@ -11,10 +11,16 @@ const Button = styled.button`
 	padding: 0.5rem 1rem;
 	background: #fff;
 	border-radius: 1rem;
-	transition: all 0.3s;
+	border: none;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
 
 	&:hover {
 		background: #efefef;
+	}
+
+	&:active {
+		background: #eeeeee;
 	}
 
 	span {

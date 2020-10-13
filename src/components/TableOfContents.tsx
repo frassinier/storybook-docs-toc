@@ -5,11 +5,22 @@ import tocbot from 'tocbot';
 const Nav = styled.nav`
 	position: fixed;
 	top: 5rem;
-	right: 5rem;
-	padding: 1rem 0rem;
-	background: white;
-	border-radius: 0.2rem;
+	right: 2.5rem;
+	padding: 1rem;
+	background: rgba(255, 255, 255, 0.95);;
+	border-radius: 0.4rem;
 	z-index: 9999;
+	transition: all 0.3s ease-in;
+
+	.toc-list {
+		list-style: none;
+		padding: 0;
+	}
+
+	.toc-link {
+		color: black;
+		text-decoration: none;
+	}
 
 	.toc-list-item {
 		position: relative;
