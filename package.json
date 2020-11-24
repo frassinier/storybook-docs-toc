@@ -1,6 +1,6 @@
 {
   "name": "storybook-docs-toc",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Table of contents addon for Storybook Docs",
   "main": "lib/index.js",
   "scripts": {
