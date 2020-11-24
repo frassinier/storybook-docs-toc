@@ -7,7 +7,7 @@ const Nav = styled.nav`
 	top: 5rem;
 	right: 2.5rem;
 	padding: 1rem;
-	background: rgba(255, 255, 255, 0.95);;
+	background: rgba(255, 255, 255, 0.95);
 	border-radius: 0.4rem;
 	z-index: 9999;
 	transition: all 0.3s ease-in;
@@ -65,7 +65,7 @@ const NavHeader = styled.header`
 const configuration = {
 	tocSelector: '.js-toc',
 	contentSelector: '.sbdocs-content',
-	headingSelector: 'h2, h3, h4, h5, h6',
+	headingSelector: '.sbdocs-h2, .sbdocs-h3, .sbdocs-h4, .sbdocs-h5, .sbdocs-h6',
 };
 
 const TableOfContents: FunctionComponent = () => {
@@ -97,7 +97,7 @@ const TableOfContents: FunctionComponent = () => {
 
 	return (
 		<Nav>
-			{headings.length > 0 && <NavHeader>Table of contents</NavHeader>}
+			{headings.length > 1 && <NavHeader>Table of contents</NavHeader>}
 			<div className="js-toc"></div>
 		</Nav>
 	);
