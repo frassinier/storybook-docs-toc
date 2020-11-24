@@ -72,27 +72,30 @@ const TableOfContents: FunctionComponent = () => {
 	const [headings, setHeadings] = React.useState([]);
 
 	React.useEffect(() => {
-		// @ts-ignore
-		setHeadings(() => [...document.getElementsByTagName('h2')]);
+		const h2 = [...document.getElementsByClassName('sbdocs-h2')];
 
-		tocbot.init({
-			...configuration,
-			onClick: event => {
-				event.preventDefault();
-				// @ts-ignore
-				const hash = event?.currentTarget.hash;
-				const id = hash?.substr(1);
-				const element = document.getElementById(id);
-				setTimeout(() => {
-					element?.focus();
-					element?.scrollIntoView();
-				}, 500);
-			},
-		});
+		if (h2.length > 1) {
+			setHeadings(h2);
 
-		return () => {
-			tocbot.destroy();
-		};
+			tocbot.init({
+				...configuration,
+				onClick: event => {
+					event.preventDefault();
+					// @ts-ignore
+					const hash = event?.currentTarget.hash;
+					const id = hash?.substr(1);
+					const element = document.getElementById(id);
+					setTimeout(() => {
+						element?.focus();
+						element?.scrollIntoView();
+					}, 500);
+				},
+			});
+
+			return () => {
+				tocbot.destroy();
+			};
+		}
 	}, []);
 
 	return (
