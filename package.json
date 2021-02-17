@@ -33,14 +33,14 @@
     "@types/styled-components": "^5.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "styled-components": "^5.1.0",
+    "styled-components": "^5.2.0",
     "typescript": "^4.1.0"
   },
   "peerDependencies": {
     "@storybook/addon-docs": "^6.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.2.0"
   },
   "dependencies": {
     "tocbot": "^4.12.0"
