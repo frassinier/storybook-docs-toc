@@ -7,6 +7,7 @@ const Nav = styled.nav`
 	top: 5rem;
 	right: 2.5rem;
 	padding: 1rem;
+	max-width: 18rem;
 	background: rgba(255, 255, 255, 0.95);
 	border-radius: 0.4rem;
 	z-index: 9999;
@@ -20,6 +21,9 @@ const Nav = styled.nav`
 	.toc-link {
 		color: black;
 		text-decoration: none;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 
 	.toc-list-item {
@@ -75,6 +79,7 @@ const TableOfContents: FunctionComponent = () => {
 		const h2 = [...document.getElementsByClassName('sbdocs-h2')];
 
 		if (h2.length > 1) {
+			// @ts-ignore
 			setHeadings(h2);
 
 			tocbot.init({
@@ -99,11 +104,11 @@ const TableOfContents: FunctionComponent = () => {
 	}, []);
 
 	return (
-		<Nav>
-			{headings.length > 1 && <NavHeader>Table of contents</NavHeader>}
+		<Nav style={{display: headings.length > 1 ? 'block' : 'none'}}>
+			<NavHeader>Table of contents</NavHeader>
 			<div className="js-toc"></div>
 		</Nav>
 	);
-}
+};
 
 export default TableOfContents;
