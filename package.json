@@ -1,8 +1,12 @@
 {
   "name": "storybook-docs-toc",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "Table of contents addon for Storybook Docs",
   "main": "lib/index.js",
+  "storybook": {
+    "displayName": "Table of contents",
+    "icon": "https://raw.githubusercontent.com/frassinier/storybook-docs-toc/master/icon.svg"
+  },
   "scripts": {
     "watch": "babel --watch src ---out-dir lib --extensions '.ts,.tsx'",
     "build": "babel src --out-dir lib --extensions '.ts,.tsx'",
@@ -13,7 +17,11 @@
     "type": "git",
     "url": "git+https://github.com/frassinier/storybook-docs-toc.git"
   },
-  "author": "",
+  "author": {
+    "name" : "Fabien Rassinier",
+    "email" : "frassinier@talend.com",
+    "url" : "https://design.talend.com/"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/frassinier/storybook-docs-toc/issues"

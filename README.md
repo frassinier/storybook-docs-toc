@@ -51,3 +51,21 @@ addParameters({
     },
 });
 ```
+
+## Customization
+
+Some CSS variables are avaible in order to customize the styles of the table of contents, and the back to top button.
+
+```css
+:root {
+    --toc-color: black;
+    --toc-background: white;
+
+    --toc-link-indicator-color: #f5f5f5;
+    --toc-link-indicator-color--active: #0675c1;
+
+    --toc-button-background: transparent;
+    --toc-button-background--hover: #ffffff;
+    --toc-button-background--active: #efefef;
+}
+```
