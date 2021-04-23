@@ -1,15 +1,15 @@
 {
   "name": "storybook-docs-toc",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Table of contents addon for Storybook Docs",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "storybook": {
     "displayName": "Table of contents",
-    "icon": "https://raw.githubusercontent.com/frassinier/storybook-docs-toc/master/icon.svg"
+    "icon": "https://raw.githubusercontent.com/frassinier/storybook-docs-toc/master/icon.png"
   },
   "scripts": {
-    "watch": "babel --watch src ---out-dir lib --extensions '.ts,.tsx'",
-    "build": "babel src --out-dir lib --extensions '.ts,.tsx'",
+    "watch": "babel --watch src ---out-dir dist --extensions '.ts,.tsx'",
+    "build": "babel src --out-dir dist --extensions '.ts,.tsx'",
     "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,9 +18,9 @@
     "url": "git+https://github.com/frassinier/storybook-docs-toc.git"
   },
   "author": {
-    "name" : "Fabien Rassinier",
-    "email" : "frassinier@talend.com",
-    "url" : "https://design.talend.com/"
+    "name": "Fabien Rassinier",
+    "email": "frassinier@talend.com",
+    "url": "https://design.talend.com/"
   },
   "license": "MIT",
   "bugs": {
@@ -35,7 +35,7 @@
     "@babel/preset-env": "^7.12.0",
     "@babel/preset-react": "^7.12.0",
     "@babel/preset-typescript": "^7.12.0",
-    "@storybook/addon-docs": "^6.1.0",
+    "@storybook/addon-docs": "^6.2.9",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/styled-components": "^5.1.0",

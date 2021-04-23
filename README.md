@@ -54,7 +54,7 @@ addParameters({
 
 ## Customization
 
-Some CSS variables are avaible in order to customize the styles of the table of contents, and the back to top button.
+Some CSS variables are available in order to customize the styles of the table of contents, and the back to top button.
 
 ```css
 :root {
