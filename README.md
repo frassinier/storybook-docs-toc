@@ -1,4 +1,4 @@
-# storybook-docs-toc
+# Storybook Docs Table of content addon
 
 Table of contents addon for [Storybook Docs](https://www.npmjs.com/package/@storybook/addon-docs).
 
