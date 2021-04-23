@@ -2,4 +2,6 @@
 node_modules
 src
 babel.config.js
+icon.png
 tsconfig.json
+yarn.lock
