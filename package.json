@@ -52,5 +52,9 @@
   },
   "dependencies": {
     "tocbot": "^4.12.0"
-  }
+  },
+  "keywords": [
+    "storybook-addon",
+    "organize"
+  ]
 }
