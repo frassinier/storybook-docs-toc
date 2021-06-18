@@ -56,5 +56,11 @@
   "keywords": [
     "storybook-addon",
     "organize"
-  ]
+  ],
+  "resolutions": {
+    "postcss": "^7.0.36",
+    "glob-parent": "^5.1.2",
+    "browserslist": "^4.16.5",
+    "trim": "^0.0.3"
+  }
 }

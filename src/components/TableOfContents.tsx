@@ -3,8 +3,8 @@ import styled from "styled-components";
 import tocbot from "tocbot";
 
 const Nav = styled.nav`
-  --color: var(--toc-color, black);
-  --background: var(--toc-background, white);
+  --color: var(--toc-color, inherit);
+  --background: var(--toc-background, none);
   --link-indicator-color: var(--toc-link-indicator-color, #f5f5f5);
   --link-indicator-color--active: var(
     --toc-link-indicator-color--active,
