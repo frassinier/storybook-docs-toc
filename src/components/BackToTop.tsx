@@ -1,38 +1,45 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
-const Button = styled.button`
-  --button-background: var(--toc-button-background, transparent);
-  --button-background--hover: var(--toc-button-background--hover, #ffffff);
-  --button-background--active: var(--toc-button-background--active, #efefef);
+const Button = styled.button.attrs({
+  className: "sbdocs sbdocs-top",
+})`
+  --color: var(--toc-button-color, inherit);
+  --color--hover: var(--toc-button-color--hover, var(--color));
+  --color--active: var(--toc-button-color--active, var(--color));
+  --background: var(--toc-button-background, transparent);
+  --background--hover: var(--toc-button-background--hover, #ffffff);
+  --background--active: var(--toc-button-background--active, #efefef);
 
   display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
-  left: calc(50% + 50rem + 2rem);
-  bottom: 4rem;
-  padding: 0.5rem 1rem;
-  background: var(--button-background);
-  border-radius: 0.5rem;
+  left: calc(50% + 500px + 20px);
+  bottom: 40px;
+  padding: 5px 10px;
+  color: var(--color);
+  background: var(--background);
   border: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background: var(--button-background--hover);
+    color: var(--color--hover);
+    background: var(--background--hover);
   }
 
   &:active {
-    background: var(--button-background--active);
+    color: var(--color--active);
+    background: var(--background--active);
   }
 
   span {
-    padding: 0.5rem;
+    padding: 5px;
   }
 `;
 
-const BackToTop: FunctionComponent = () => {
+const BackToTop: FunctionComponent = ({ children, ...rest }) => {
   const [visible, isVisible] = React.useState(false);
 
   function onScroll() {
@@ -51,9 +58,13 @@ const BackToTop: FunctionComponent = () => {
   return (
     <Button
       onClick={() => window.scroll({ top: 0, left: 0, behavior: "smooth" })}
+      {...rest}
     >
-      <span aria-hidden={true}>↑</span>
-      Back to top
+      {children || (
+        <>
+          <span aria-hidden={true}>↑</span> <span>Back to top</span>
+        </>
+      )}
     </Button>
   );
 };

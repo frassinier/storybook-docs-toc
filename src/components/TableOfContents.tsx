@@ -2,23 +2,18 @@ import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 import tocbot from "tocbot";
 
-const Nav = styled.nav`
+const Nav = styled.nav.attrs({ className: "sbdocs sbdocs-toc" })`
   --color: var(--toc-color, inherit);
   --background: var(--toc-background, none);
-  --link-indicator-color: var(--toc-link-indicator-color, #f5f5f5);
-  --link-indicator-color--active: var(
-    --toc-link-indicator-color--active,
-    #0675c1
-  );
+  --indicator-color: var(--toc-indicator-color, #f5f5f5);
+  --indicator-color--active: var(--toc-indicator-color--active, #0675c1);
 
   position: fixed;
-  top: 4rem;
-  left: calc(50% + 50rem + 2rem);
-  padding: 1rem;
-  width: 15rem;
+  top: 40px;
+  left: calc(50% + 500px + 20px);
+  padding: 10px;
+  width: 250px;
   background: var(--background);
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 25%);
   z-index: 9999;
   transition: all 0.3s ease-in;
 
@@ -40,7 +35,8 @@ const Nav = styled.nav`
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 0 1rem;
+    margin: 0;
+    padding: 0 10px;
     cursor: pointer;
 
     &:before {
@@ -51,19 +47,19 @@ const Nav = styled.nav`
       left: 0;
       bottom: 0;
       width: 3px;
-      background: var(--link-indicator-color);
+      background: var(--indicator-color);
     }
 
     &.is-active-li {
-      color: var(--link-indicator-color--active);
+      color: var(--indicator-color--active);
 
       &:before {
-        background: var(--link-indicator-color--active);
+        background: var(--indicator-color--active);
       }
     }
 
     .toc-list-item {
-      opacity: 0.6;
+      opacity: 0.54;
 
       &:before {
         content: none;
@@ -72,8 +68,11 @@ const Nav = styled.nav`
   }
 `;
 
-const NavHeader = styled.header`
+const NavHeader = styled.header.attrs({
+  className: "sbdocs sbdocs-toc__header",
+})`
   font-weight: bold;
+  margin-bottom: 8px;
 `;
 
 const configuration = {
@@ -82,7 +81,7 @@ const configuration = {
   headingSelector: ".sbdocs-h2",
 };
 
-const TableOfContents: FunctionComponent = () => {
+const TableOfContents: FunctionComponent = ({ title, children, ...rest }) => {
   const [headings, setHeadings] = React.useState([]);
 
   React.useEffect(() => {
@@ -114,9 +113,10 @@ const TableOfContents: FunctionComponent = () => {
   }, []);
 
   return (
-    <Nav style={{ display: headings.length > 1 ? "block" : "none" }}>
-      <NavHeader>Table of contents</NavHeader>
+    <Nav style={{ display: headings.length > 1 ? "block" : "none" }} {...rest}>
+      <NavHeader>{title || "Table of contents"}</NavHeader>
       <div className="js-toc"></div>
+      {children}
     </Nav>
   );
 };

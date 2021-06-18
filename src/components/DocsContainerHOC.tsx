@@ -6,12 +6,17 @@ import {
 import TableOfContents from "./TableOfContents";
 import BackToTop from "./BackToTop";
 
-const DocsContainerHOC: FunctionComponent<DocsContainerProps> = (props) => {
+const DocsContainerHOC: FunctionComponent<DocsContainerProps> = ({
+  children,
+  ...rest
+}) => {
   return (
     <React.Fragment>
-      <TableOfContents />
-      <DocsContainer {...props} />
-      <BackToTop />
+      <DocsContainer {...rest}>
+        <TableOfContents />
+        {children}
+        <BackToTop />
+      </DocsContainer>
     </React.Fragment>
   );
 };
