@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import {
   DocsContainer,
   DocsContainerProps,
-} from "@storybook/addon-docs/blocks";
+} from "@storybook/addon-docs";
 import TableOfContents from "./TableOfContents";
 import BackToTop from "./BackToTop";
 
