@@ -1,6 +1,8 @@
+.github
 .idea
 node_modules
 src
+storybook-static
 babel.config.js
 icon.png
 tsconfig.json

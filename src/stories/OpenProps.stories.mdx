@@ -2,14 +2,35 @@ import { DocsContainer, Meta } from "@storybook/addon-docs";
 import { BackToTop, TableOfContents } from "./..";
 
 <Meta
-  title="Table of contents"
+  title="Table of contents with open props"
   parameters={{
     docs: {
       container: ({ children, ...rest }) => (
         <DocsContainer {...rest}>
-          <TableOfContents />
+          <link
+            href="//fonts.googleapis.com/css?family=Montserrat:500,700&display=swap"
+            rel="stylesheet"
+          />
+          <link href="//unpkg.com/open-props" rel="stylesheet" />
+          <TableOfContents
+            style={{
+                padding: "var(--size-3)",
+                fontFamily: "Montserrat, sans-serif",
+                background: "var(--gradient-19)",
+                borderRadius: "var(--radius-2)",
+                boxShadow: "var(--shadow-2)",
+            }}
+          />
           {children}
-          <BackToTop />
+          <BackToTop
+            style={{
+                padding: "var(--size-3)",
+                fontFamily: "Montserrat, sans-serif",
+                background: "var(--gradient-19)",
+                borderRadius: "var(--radius-2)",
+                boxShadow: "var(--shadow-2)",
+            }}
+          />
         </DocsContainer>
       ),
     },
@@ -21,9 +42,30 @@ import { BackToTop, TableOfContents } from "./..";
   docs: {
     container: ({ children, ...rest }) => (
       <DocsContainer {...rest}>
-        <TableOfContents />
+        <link
+          href="//fonts.googleapis.com/css?family=Montserrat:500,700&display=swap"
+          rel="stylesheet"
+        />
+        <link href="//unpkg.com/open-props" rel="stylesheet" />
+        <TableOfContents
+          style={{
+            padding: "var(--size-3)",
+            fontFamily: "Montserrat, sans-serif",
+            background: "var(--gradient-19)",
+            borderRadius: "var(--radius-2)",
+            boxShadow: "var(--shadow-2)",
+          }}
+        />
         {children}
-        <BackToTop />
+        <BackToTop
+          style={{
+            padding: "var(--size-3)",
+            fontFamily: "Montserrat, sans-serif",
+            background: "var(--gradient-19)",
+            borderRadius: "var(--radius-2)",
+            boxShadow: "var(--shadow-2)",
+          }}
+        />
       </DocsContainer>
     ),
   },

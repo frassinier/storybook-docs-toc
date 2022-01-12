@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import styled from "styled-components";
 import tocbot from "tocbot";
 
@@ -8,6 +8,7 @@ const Nav = styled.nav.attrs({ className: "sbdocs sbdocs-toc" })`
   --indicator-color: var(--toc-indicator-color, #f5f5f5);
   --indicator-color--active: var(--toc-indicator-color--active, #0675c1);
 
+  display: none;
   position: fixed;
   top: 40px;
   left: calc(50% + 500px + 20px);
@@ -16,6 +17,10 @@ const Nav = styled.nav.attrs({ className: "sbdocs sbdocs-toc" })`
   background: var(--background);
   z-index: 9999;
   transition: all 0.3s ease-in;
+
+  &[data-show="true"] {
+    display: inherit;
+  }
 
   .toc-list {
     list-style: none;
@@ -81,44 +86,53 @@ const configuration = {
   headingSelector: ".sbdocs-h2",
 };
 
-const TableOfContents: FunctionComponent = ({ title, children, ...rest }) => {
-  const [headings, setHeadings] = React.useState([]);
-
-  React.useEffect(() => {
-    const h2 = [...document.getElementsByClassName("sbdocs-h2")];
-
-    if (h2.length > 1) {
-      // @ts-ignore
-      setHeadings(h2);
-
-      tocbot.init({
-        ...configuration,
-        onClick: (event) => {
-          event.preventDefault();
-          // @ts-ignore
-          const hash = event?.currentTarget.hash;
-          const id = hash?.substr(1);
-          const element = document.getElementById(id);
-          setTimeout(() => {
-            element?.focus();
-            element?.scrollIntoView();
-          }, 500);
-        },
-      });
-
-      return () => {
-        tocbot.destroy();
-      };
-    }
-  }, []);
-
-  return (
-    <Nav style={{ display: headings.length > 1 ? "block" : "none" }} {...rest}>
-      <NavHeader>{title || "Table of contents"}</NavHeader>
-      <div className="js-toc"></div>
-      {children}
-    </Nav>
-  );
+type TableOfContentsProps = React.PropsWithChildren<any> & {
+  title?: React.ReactNode;
 };
+
+const TableOfContents = React.forwardRef(
+  (
+    { title = "Table of contents", children, ...rest }: TableOfContentsProps,
+    ref: React.Ref<HTMLDivElement>
+  ) => {
+    const [headings, setHeadings] = React.useState<Element[]>([]);
+
+    React.useEffect(() => {
+      const h2 = Array.from(
+        document.querySelectorAll(configuration.headingSelector)
+      );
+
+      if (h2.length > 1) {
+        setHeadings(h2);
+
+        tocbot.init({
+          ...configuration,
+          onClick: (event) => {
+            event.preventDefault();
+            const hash = (event.target as HTMLAnchorElement).hash;
+            const id = hash?.substr(1);
+            const element = document.getElementById(id);
+            setTimeout(() => {
+              element?.focus();
+              element?.scrollIntoView();
+            }, 500);
+          },
+        });
+
+        return () => {
+          tocbot.destroy();
+        };
+      }
+    }, []);
+
+    return (
+      <Nav {...rest} data-show={headings.length > 1} ref={ref}>
+        <NavHeader>{title}</NavHeader>
+        <div className="js-toc"></div>
+        {children}
+      </Nav>
+    );
+  }
+);
 
 export default TableOfContents;

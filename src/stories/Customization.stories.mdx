@@ -1,25 +1,40 @@
-import { DocsContainer, Meta } from "@storybook/addon-docs/blocks";
+import { DocsContainer, Meta } from "@storybook/addon-docs";
 import { BackToTop, TableOfContents } from "./..";
 
 <Meta
-  title="Example/Table Of Contents Custom"
+  title="Custom table of contents"
   parameters={{
     docs: {
       container: ({ children, ...rest }) => (
         <DocsContainer {...rest}>
-          <TableOfContents className="sbdocs-toc--custom" title="Quick links">
-            <br />
-            <a className="sbdocs sbdocs-a" href="https://storybook.js.org">
-              Storybook.js.org
-            </a>
+          <TableOfContents title="Quick links">
+            <hr />
+            <p>Add extra content here</p>
           </TableOfContents>
           {children}
-          <BackToTop className="sbdocs-top--custom">🔝️</BackToTop>
+          <BackToTop />
         </DocsContainer>
       ),
     },
   }}
 />
+
+```jsx
+{
+  docs: {
+    container: ({ children, ...rest }) => (
+      <DocsContainer {...rest}>
+        <TableOfContents title="Quick links">
+          <hr />
+          <p>Add extra content here</p>
+        </TableOfContents>
+        {children}
+        <BackToTop />
+      </DocsContainer>
+    ),
+  },
+}
+```
 
 # Pendentibus famulos indicium in honore veris mitissima
 

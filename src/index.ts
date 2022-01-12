@@ -1,6 +1,4 @@
-import BackToTop from "./components/BackToTop";
-import DocsContainerHOC from "./components/DocsContainerHOC";
-import TableOfContents from "./components/TableOfContents";
+import { BackToTop, DocsContainerHOC, TableOfContents } from "./components";
 
 const withTableOfContents = () => ({
   docs: {
