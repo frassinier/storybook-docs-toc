@@ -13,7 +13,7 @@
     "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook --docs"
   },
   "repository": {
     "type": "git",
@@ -37,9 +37,9 @@
     "@babel/preset-env": "^7.12.0",
     "@babel/preset-react": "^7.12.0",
     "@babel/preset-typescript": "^7.12.0",
-    "@storybook/addon-controls": "^6.3.0-rc.11",
-    "@storybook/addon-essentials": "^6.3.0-rc.11",
-    "@storybook/react": "^6.3.0-rc.11",
+    "@storybook/addon-controls": "^6.1.0",
+    "@storybook/addon-essentials": "^6.1.0",
+    "@storybook/react": "^6.1.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/styled-components": "^5.1.0",
@@ -61,11 +61,5 @@
   "keywords": [
     "storybook-addon",
     "organize"
-  ],
-  "resolutions": {
-    "postcss": "^7.0.36",
-    "glob-parent": "^5.1.2",
-    "browserslist": "^4.16.5",
-    "trim": "^0.0.3"
-  }
+  ]
 }
