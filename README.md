@@ -1,4 +1,4 @@
-# Storybook Docs Table of content addon
+# Storybook Docs Table of contents addon
 
 Table of contents addon for [Storybook Docs](https://www.npmjs.com/package/@storybook/addon-docs).
 
@@ -14,10 +14,10 @@ npm i -D storybook-docs-toc
 
 ## Usage
 
-Add this to your preview.js
+Add this to your preview.js file
 
 ```diff
-- import { DocsContainer } from '@storybook/addon-docs/blocks';
+- import { DocsContainer } from '@storybook/addon-docs';
 + import { withTableOfContents } from 'storybook-docs-toc';
 
 - addParameters({
@@ -33,7 +33,7 @@ or if you need more flexibility
 
 ```diff
 + import React from 'react';
-- import { DocsContainer } from '@storybook/addon-docs/blocks';
+- import { DocsContainer } from '@storybook/addon-docs';
 + import { BackToTop, TableOfContents } from 'storybook-docs-toc';
 
 export const parameters = {
@@ -54,7 +54,7 @@ export const parameters = {
 
 ## Customization
 
-Some CSS variables are available in order to customize the styles of the table of contents, and the back to top button.
+Some CSS custom properties are available to customize the styles of the table of contents, and the back to top button.
 
 ```css
 .sbdocs.sbdocs-toc--custom {
