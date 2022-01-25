@@ -80,7 +80,7 @@ const NavHeader = styled.header.attrs({
   margin-bottom: 8px;
 `;
 
-const configuration = {
+const defaultTocConfig = {
   tocSelector: ".js-toc",
   contentSelector: ".sbdocs-content",
   headingSelector: ".sbdocs-h2",
@@ -88,25 +88,27 @@ const configuration = {
 
 type TableOfContentsProps = React.PropsWithChildren<any> & {
   title?: React.ReactNode;
+  config?: tocbot.IStaticOptions
 };
 
 const TableOfContents = React.forwardRef(
   (
-    { title = "Table of contents", children, ...rest }: TableOfContentsProps,
+    { title = "Table of contents", config: userTocConfig, children, ...rest }: TableOfContentsProps,
     ref: React.Ref<HTMLDivElement>
   ) => {
     const [headings, setHeadings] = React.useState<Element[]>([]);
 
     React.useEffect(() => {
       const h2 = Array.from(
-        document.querySelectorAll(configuration.headingSelector)
+        document.querySelectorAll(defaultTocConfig.headingSelector)
       );
 
       if (h2.length > 1) {
         setHeadings(h2);
 
         tocbot.init({
-          ...configuration,
+          ...defaultTocConfig,
+          ...(userTocConfig || {}),
           onClick: (event) => {
             event.preventDefault();
             const hash = (event.target as HTMLAnchorElement).hash;
@@ -123,7 +125,7 @@ const TableOfContents = React.forwardRef(
           tocbot.destroy();
         };
       }
-    }, []);
+    }, [userTocConfig]);
 
     return (
       <Nav {...rest} data-show={headings.length > 1} ref={ref}>
