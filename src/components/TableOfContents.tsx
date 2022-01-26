@@ -80,22 +80,33 @@ const NavHeader = styled.header.attrs({
   margin-bottom: 8px;
 `;
 
-const configuration = {
+const defaultConfiguration = {
   tocSelector: ".js-toc",
   contentSelector: ".sbdocs-content",
   headingSelector: ".sbdocs-h2",
 };
 
-type TableOfContentsProps = React.PropsWithChildren<any> & {
+type TableOfContentsProps = React.PropsWithChildren<{
   title?: React.ReactNode;
-};
+  config?: tocbot.IStaticOptions;
+}>;
 
 const TableOfContents = React.forwardRef(
   (
-    { title = "Table of contents", children, ...rest }: TableOfContentsProps,
+    {
+      title = "Table of contents",
+      config = {},
+      children,
+      ...rest
+    }: TableOfContentsProps,
     ref: React.Ref<HTMLDivElement>
   ) => {
     const [headings, setHeadings] = React.useState<Element[]>([]);
+
+    const configuration = {
+      ...defaultConfiguration,
+      ...config,
+    };
 
     React.useEffect(() => {
       const h2 = Array.from(

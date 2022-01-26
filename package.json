@@ -3,13 +3,16 @@
   "version": "1.6.1",
   "description": "Table of contents addon for Storybook Docs",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "storybook": {
     "displayName": "Table of contents",
     "icon": "https://raw.githubusercontent.com/frassinier/storybook-docs-toc/master/icon.png"
   },
   "scripts": {
     "watch": "babel --watch src ---out-dir dist --extensions '.ts,.tsx'",
-    "build": "babel src --out-dir dist --extensions '.ts,.tsx'",
+    "build:js": "babel src --out-dir dist --extensions '.ts,.tsx'",
+    "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist",
+    "build": "yarn build:js && yarn build:types",
     "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
