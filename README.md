@@ -12,6 +12,8 @@ It uses [tocbot](https://github.com/tscanlin/tocbot) under the hood.
 npm i -D storybook-docs-toc
 ```
 
+Be aware that `styled-components` is a peer dependency.
+
 ## Usage
 
 Add this to your preview.js file
@@ -47,10 +49,14 @@ export const parameters = {
 +                    <BackToTop className="sbdocs sbdocs-top--custom" />
 +                </DocsContainer>
 +            </React.Fragment>
-+        ),          
++        ),
     },
 };
 ```
+
+## Configuration
+
+You can override the default selectors for tocbot via the `config` prop on `DocsContainerHOC` or `TableOfContents`. These also take a custom `title`.
 
 ## Customization
 
@@ -58,18 +64,18 @@ Some CSS custom properties are available to customize the styles of the table of
 
 ```css
 .sbdocs.sbdocs-toc--custom {
-    --toc-color: #202020;
-    --toc-background: #fff;
-    --toc-indicator-color: #efefef;
-    --toc-indicator-color--active: #fbd476;
+  --toc-color: #202020;
+  --toc-background: #fff;
+  --toc-indicator-color: #efefef;
+  --toc-indicator-color--active: #fbd476;
 }
 
 .sbdocs.sbdocs-top--custom {
-    --toc-button-color: #66bf3cff;
-    --toc-button-color--hover: #66bf3ccc;
-    --toc-button-color--active: #66bf3caa;
-    --toc-button-background: #e7fdd8ff;
-    --toc-button-background--hover: #e7fdd8cc;
-    --toc-button-background--active: #e7fdd8aa;
+  --toc-button-color: #66bf3cff;
+  --toc-button-color--hover: #66bf3ccc;
+  --toc-button-color--active: #66bf3caa;
+  --toc-button-background: #e7fdd8ff;
+  --toc-button-background--hover: #e7fdd8cc;
+  --toc-button-background--active: #e7fdd8aa;
 }
 ```
