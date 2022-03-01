@@ -16,6 +16,8 @@ Be aware that `styled-components` is a peer dependency.
 
 ## Usage
 
+Take a look at this [in-context demo](frassinier.github.io/storybook-docs-toc)
+
 Add this to your preview.js file
 
 ```diff
