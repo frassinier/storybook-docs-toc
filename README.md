@@ -1,8 +1,12 @@
 # Storybook Docs Table of contents addon
 
+
+> **Warning**  
+> This Storybook add-on is now an official feature of Storybook 7.1+. This repository is not maintained anymore.
+
 Table of contents addon for [Storybook Docs](https://www.npmjs.com/package/@storybook/addon-docs).
 
-Get auto generated list of links next to your content.
+Get auto-generated list of links next to your content.
 
 It uses [tocbot](https://github.com/tscanlin/tocbot) under the hood.
 
